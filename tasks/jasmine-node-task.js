@@ -4,8 +4,6 @@ module.exports = function (grunt) {
     grunt.registerTask("jasmine_node", "Runs jasmine-node.", function() {
       var jasmine = require('jasmine-node');
       var util;
-      // TODO: ditch this when grunt v0.4 is released
-      grunt.util = grunt.util || grunt.utils;
       var Path = require('path');
       var _ = grunt.util._;
 
@@ -42,6 +40,14 @@ module.exports = function (grunt) {
 
       if (_.isUndefined(showColors)) {
         showColors = true;
+      }
+
+      if (extensions.indexOf("coffee") !== -1) {
+        try {
+          require('coffee-script/register'); // support CoffeeScript >=1.7.0
+        } catch ( e ) {
+          require('coffee-script'); // support CoffeeScript <=1.6.3
+        }
       }
 
       var junitreport = {
@@ -89,28 +95,16 @@ module.exports = function (grunt) {
         junitreport:     jUnit
       };
 
-
-      // order is preserved in node.js
-      var legacyArguments = Object.keys(options).map(function(key) {
-        return options[key];
-      });
-
       if (useHelpers) {
         jasmine.loadHelpersInFolder(projectRoot,
         new RegExp("helpers?\\.(" + extensions + ")$", 'i'));
       }
 
       try {
-        // for jasmine-node@1.0.27 individual arguments need to be passed
-        jasmine.executeSpecsInFolder.apply(this, legacyArguments);
-      }
-      catch (e) {
-        try {
-          // since jasmine-node@1.0.28 an options object need to be passed
-          jasmine.executeSpecsInFolder(options);
-        } catch (e) {
-          console.log('Failed to execute "jasmine.executeSpecsInFolder": ' + e.stack);
-        }
+        // since jasmine-node@1.0.28 an options object need to be passed
+        jasmine.executeSpecsInFolder(options);
+      } catch (e) {
+        console.log('Failed to execute "jasmine.executeSpecsInFolder": ' + e.stack);
       }
     });
 };
