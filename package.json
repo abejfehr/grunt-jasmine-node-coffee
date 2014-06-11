@@ -1,7 +1,7 @@
 {
   "name" : "grunt-jasmine-node-coffee",
   "description" : "Grunt task for running jasmine-node with coffeescript support. Based off of grunt-jasmine-node by Omar Gonzalez (s9tpepper).",
-  "version" : "0.1.3",
+  "version" : "0.1.4",
   "homepage" : "https://github.com/s9tpepper/grunt-jasmine-node-coffee",
   "author" : {
     "name" : "Camilo Reyes",
@@ -29,12 +29,11 @@
   "scripts" : {
   },
   "dependencies" : {
-    "coffee-script": "~1.7.0",
-    "jasmine-node": "~1.14.0"
+    "coffee-script": "~1.7.1",
+    "jasmine-node": "~1.14.3"
   },
   "devDependencies" : {
     "grunt" : ">=0.4.1",
-    "jasmine-node": ">=1.7.0",
     "grunt-contrib-jshint": "~0.1.1"
   },
   "keywords" : [
