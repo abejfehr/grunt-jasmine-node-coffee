@@ -24,6 +24,23 @@ grunt.loadNpmTasks('grunt-jasmine-node-coffee');
 grunt.registerTask('default', 'jasmine_node');
 ```
 
+Or in CoffeeScript in your `Gruntfile.coffee` grunt file:
+```coffeescript
+grunt.initConfig {
+  jasmine_node:
+    forceExit: true
+    # Default is already spec so not necessary
+    specNameMatcher: 'spec'
+    projectRoot: 'scripts/folder'
+    # This tells jasmine-node to add .coffee files
+    extensions: 'coffee'
+}
+
+grunt.loadNpmTasks 'grunt-jasmine-node-coffee'
+
+grunt.registerTask 'default', 'jasmine_node'
+```
+
 ## Bugs
 
 Help us squash them by submitting an issue to the [author](https://github.com/beautifulcoder) that describes how you encountered it; please be as specific as possible including operating system, node, grunt, and grunt-jasmine-node-coffee versions. This version of the software strictly deals with coffeescript support so please stay on topic.
