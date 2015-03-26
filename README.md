@@ -1,6 +1,6 @@
 # grunt-jasmine-node-coffee
 
-A grunt.js task to run your jasmine feature suite using jasmine-node withf coffeescript support.
+A grunt.js task to run your jasmine feature suite using jasmine-node with coffeescript support.
 
 ## Getting Started
 Install this grunt plugin next to your project's grunt.js gruntfile with: `npm install grunt-jasmine-node`
