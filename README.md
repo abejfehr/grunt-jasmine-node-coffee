@@ -1,6 +1,6 @@
 # grunt-jasmine-node-coffee
 
-A grunt.js task to run your jasmine feature suite using jasmine-node withf coffeescript support.
+A grunt.js task to run your jasmine feature suite using jasmine-node with coffeescript support.
 
 ## Getting Started
 Install this grunt plugin next to your project's grunt.js gruntfile with: `npm install grunt-jasmine-node`
@@ -22,6 +22,23 @@ grunt.initConfig({
 grunt.loadNpmTasks('grunt-jasmine-node-coffee');
 
 grunt.registerTask('default', 'jasmine_node');
+```
+
+Or in CoffeeScript in your `Gruntfile.coffee` grunt file:
+```coffeescript
+grunt.initConfig {
+  jasmine_node:
+    forceExit: true
+    # Default is already spec so not necessary
+    specNameMatcher: 'spec'
+    projectRoot: 'scripts/folder'
+    # This tells jasmine-node to add .coffee files
+    extensions: 'coffee'
+}
+
+grunt.loadNpmTasks 'grunt-jasmine-node-coffee'
+
+grunt.registerTask 'default', 'jasmine_node'
 ```
 
 ## Bugs
