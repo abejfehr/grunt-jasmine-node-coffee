@@ -3,14 +3,14 @@
 A grunt.js task to run your jasmine feature suite using jasmine-node with coffeescript support.
 
 ## Getting Started
-Install this grunt plugin next to your project's grunt.js gruntfile with: `npm install grunt-jasmine-node`
+Install this grunt plugin next to your project's grunt.js gruntfile with: `npm install grunt-jasmine-node-coffee`
 
 Then add this line to your project's `Gruntfile.js` grunt file:
 
 ```javascript
 grunt.initConfig({
   jasmine_node: {
-    forceExit: true
+    forceExit: true,
     // Default is already spec so not necessary
     specNameMatcher: 'spec',
     projectRoot: 'scripts/folder',
